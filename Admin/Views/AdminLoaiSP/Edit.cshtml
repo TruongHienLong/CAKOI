@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model LoaiSP
+<main id="main" class="main">
+    <form asp-action="Edit" method="post">
+        <h2>Loại sản phẩm</h2>
+        <hr />
+        <input type="hidden" asp-for="IdLoaiSP" />
+        <div class="form-group">
+            <label class="mb-2">Id Loại sản phẩm</label>
+            <input asp-for="IdLoaiSP" class="form-control" />
+            <span asp-validation-for="IdLoaiSP" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="mb-2">Tên loại sản phẩm</label>
+            <input asp-for="TenLoaiSP" class="form-control mb-3" />
+            <span asp-validation-for="TenLoaiSP" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="mb-2">Danh mục sản phẩm</label>
+            <select asp-for="IdDanhMucSP" asp-items="@ViewBag.xListDanhMucSP" class="form-control mb-3">
+            </select>
+            <span asp-validation-for="IdDanhMucSP" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary"> Update </button>
+        <a asp-action="Index" class="btn btn-secondary"> Back to List</a>
+    </form>
+</main>
+@section Scripts{
+    <partial name="_Notification" />
+}
+

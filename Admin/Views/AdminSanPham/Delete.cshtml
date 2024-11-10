@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@model SanPham
+    <main class="main" id="main">
+        <form asp-action="Delete" method="post" enctype="multipart/form-data">
+            <div class="">
+                <h2>Xóa Sản phẩm</h2>
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-sm-9 col-md-6 col-lg-8">
+                    <div class="form-group">
+                        <label class="mb-2">Tên sản phẩm</label>
+                        <input asp-for="TenSanPham" class="form-control mb-3" readonly="False  />
+                        <span asp-validation-for="TenSanPham" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="mb-2">Giá</label>
+                        <input asp-for="Gia" class="form-control mb-3" readonly="False  />
+                        <span asp-validation-for="Gia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-2">Loại sản phẩm</label>
+                        <select asp-for="IdLoaicSP" asp-items="@ViewBag.ListLoai" class="form-control mb-3">
+                        </select>
+                        <span asp-validation-for="IdLoaicSP" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-2">Màu sắc</label>
+                        <select asp-for="IdMauSac" asp-items="@ViewBag.ListMau" class="form-control mb-3">
+                        </select>
+                        <span asp-validation-for="IdMauSac" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-2">Số lượng</label>
+                        <input asp-for="TonKho.SoLuong" class="form-control mb-3" readonly="False>
+                        <span asp-validation-for="TonKho.SoLuong" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-2">Hình ảnh</label>
+                        <input asp-for="Anh" class="form-control mb-3" readonly="False" />
+                    </div>
+
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                        <i class="bi bi-trash"></i> Delete
+                    </button>
+                    <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Cảnh Báo</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Bạn có muốn xóa danh mục này không
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-danger"> Delete </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a asp-action="Index" class="btn btn-secondary">Back To List</a>
+                </div>
+                <div class="col-sm-3 col-md-6 col-lg-4">
+                    @if (Model.Anh != null)
+                    {
+                        <img src="/@Model.Anh" style="width:100%" />
+                    }
+                </div>
+            </div>
+        </form>
+    </main>
+
+
+
+
+

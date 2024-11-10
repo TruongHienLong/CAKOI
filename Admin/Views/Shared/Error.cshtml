@@ -1,0 +1,16 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-light">Cảnh Báo.</h1>
+<h2 class="text-light">Bạn không có quyền truy câp vào Admin. Vui lòng thoát ra!</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+
