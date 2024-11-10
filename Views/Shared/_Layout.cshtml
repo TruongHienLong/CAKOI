@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anime | Template</title>
+
+    <!-- Favicons -->
+    <link href="~/AdminAssets/assets/img/favicon.png" rel="icon">
+    <link href="~/AdminAssets/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/AdminAssets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/AdminAssets/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/AdminAssets/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/AdminAssets/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/AdminAssets/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/AdminAssets/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/AdminAssets/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/AdminAssets/assets/css/style.css" rel="stylesheet" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Assets/css/style.css" type="text/css">
+</head>
+<html>
+<body style="background:white;">
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header" style=" background: #EC8B5E;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo" style=" padding: 10px 0 5px;">
+                        <a href=" asp-area=" " asp-controller=" Home" asp-action="Index" ">
+							<img style="max-width :120%" src="~/AdminAssets/assets/img/462558559_2381054308901931_5464435904428262768_n.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                                <li><a asp-area="Admin" asp-controller="AdminSanPham" asp-action="Index">Quản lí</a></li>
+                                <li><partial name="_CartPartial" /></li>
+                                <li>
+                                    @using (Html.BeginForm("Index", "", FormMethod.Get))
+                                    {
+                                        <div class="btn-group search-bar" role="group" aria-label="Basic example">
+                                            @Html.TextBox("Search", null, new { placeholder = "Nhập để tìm kiếm ", @class = "form-control" })
+                                            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i>  </button>
+                                        </div>
+
+
+                                    }
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+
+    <!-- Header End -->
+    @RenderBody()
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer" style=" background: white;">
+        <div class="page-up">
+            <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer__nav">
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <p>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch"><i class="icon_close"></i></div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+    <!-- Js Plugins -->
+    <script src="~/Assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/player.js"></script>
+    <script src="~/Assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/Assets/js/mixitup.min.js"></script>
+    <script src="~/Assets/js/jquery.slicknav.js"></script>
+    <script src="~/Assets/js/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+    <script src="~/AdminAssets/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/AdminAssets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminAssets/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="~/AdminAssets/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/AdminAssets/assets/vendor/quill/quill.min.js"></script>
+    <script src="~/AdminAssets/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/AdminAssets/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/AdminAssets/assets/vendor/php-email-form/validate.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+﻿@model SanPham
+
+<section class="anime-details spad bgw br ">
+    <div class="container">
+        <div class="anime__details__content">
+            <div class="row" style="border-radius:5px ;border:1px solid;  padding:10px"> 
+                <div class="col-lg-4">
+                    <div class="anime__details__pic set-bg" data-setbg="/@Model.Anh">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                            <h3 style="color:black;" >@Model.TenSanPham</h3>
+                            <span style="color:red;"> @String.Format(" Giá: {0:#,##0}", Model.Gia) đ</span>
+                        </div>
+                        <p style="color:black;">
+                            @Model.MoTa
+                        </p>
+                        <div class="">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6" style="line-height:2; margin-left:20px;">
+                                    <ul>
+                                        <li style="color:black;"><span>Danh mục:</span> @Model.LoaiSP.DanhMucSP.TenDanhMucSP</li>
+                                        <li><span>Loại sản phẩm:</span> @Model.LoaiSP.TenLoaiSP</li>
+                                        <li><span>Ngày Phát:</span> Oct 02, 2019 to ?</li>
+                                        <li><span>Trạng thái:</span> Đang hoạt động</li>
+                                        <li><span>Màu Sắc:</span> @Model.MauSac.TenMau</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="anime__details__btn">
+                            <a asp-action="Index" class="follow-btn"><i class="fa fa-heart-o"></i> Quay Lại</a>
+                            <a class="watch-btn" asp-route="addcart" asp-route-productid="@Model.IdSanPham">
+                                <span>Thêm vào giỏ hàng</span> <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg">
+            <div class="trending__product">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <div class="section-title">
+                            <h4>Sản phẩm cùng loại</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var x in ViewBag.ListPR)
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-6 ">
+                            <div class="product__item ">
+                                <div style="background:white; height:380px; border:1px solid;" class="product__item__pic p-3 " @* data-setbg="@x.Anh"*@>
+                                    <a asp-action="Detail" asp-route-id="@x.IdSanPham"><img class="mb-3" style="width: 100%; border-bottom:1px solid black; height:200px" src="/@x.Anh" /> </a>
+
+                                    <div style="color:red;margin-bottom:10px;">  @String.Format(" Giá: {0:#,##0}", x.Gia) đ</div>
+                                    <div style="height:18%;">
+                                        <h5><a style="text-transform: capitalize; color: #364b62;" asp-action="Detail" asp-route-id="@x.IdSanPham">@x.TenSanPham</a></h5>
+                                    </div>
+                                    <div style="position: absolute; left: 13%; ">
+                                        <a class="btn btn-success" asp-area="" asp-controller="GioHang" asp-action="Index">
+                                            <span> <i class="bi bi-cart-plus-fill"></i>Thêm vào giỏ hàng</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>

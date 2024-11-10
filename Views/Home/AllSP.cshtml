@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "AllSP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="product spad bgw">
+    <div class="container bgw br">
+        <div class="row">
+
+            @*-------------- Trái ----------------------*@
+
+
+            
+
+                
+            @*-------------------Phải---------------------------------------*@
+          
+                    <div class="row">
+                        @foreach (var x in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div style="background: white; border: 1px solid; height: 380px;" class="product__item__pic p-3  " @* data-setbg="@x.Anh"*@>
+                                        <a asp-action="Detail" asp-route-id="@x.IdSanPham"><img class="mb-3" style="width: 100%; border-bottom:1px solid black; height:200px" src="/@x.Anh" /> </a>
+
+                                        <div style="color:red;margin-bottom:10px;">  @String.Format(" Giá: {0:#,##0}", x.Gia) đ</div>
+                                        <div style="height:18%;">
+                                            <h5><a style="text-transform: capitalize; color: #364b62;" asp-action="Detail" asp-route-id="@x.IdSanPham">@x.TenSanPham</a></h5>
+                                        </div>
+                                        <div style="position: absolute; left: 13%; ">
+                                            <a class="btn btn-success" asp-route="addcart" asp-route-productid="@x.IdSanPham">
+                                                <span> <i class="bi bi-cart-plus-fill"></i>Thêm vào giỏ hàng</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        }
+                    <div>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item @(ViewBag.PageIndex==1?"disabled":"")">
+                                <a class="page-link" asp-route-id="@(ViewBag.Loai)" asp-route-page="1">&laquo;</a>
+                            </li>
+                            @for (int i = 1; i <= ViewBag.PageSum; i++)
+                            {
+                                <li class="page-item @(ViewBag.PageIndex==i?"active":"")">
+                                    <a class="page-link" asp-route-id="@(ViewBag.Loai)" asp-route-page="@i">@i</a>
+                                </li>
+                            }
+                            <li class="page-item @(ViewBag.PageIndex==ViewBag.PageSum?"disabled":"")">
+                                <a class="page-link" asp-route-id="@(ViewBag.Loai)" method="post" asp-route-page="@ViewBag.PageSum">&raquo;</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
